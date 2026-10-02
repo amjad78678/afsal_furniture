@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #171514;
+  background: #f7f1e8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: #f7f1e8;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: #6f4a2f;
+  color: #fffaf3;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.furniture-loader-ring {
+  animation: furniture-ring-spin 1.9s linear infinite;
+  border-top-color: #6f4a2f;
+  border-right-color: transparent;
+}
+
+.furniture-loader-ring-delay {
+  animation-direction: reverse;
+  animation-duration: 2.6s;
+  border-bottom-color: #b99063;
+}
+
+.furniture-loader-chair {
+  animation: furniture-chair-float 1.7s ease-in-out infinite;
+}
+
+.loading-dots::after {
+  animation: loading-dots 1.2s steps(4, end) infinite;
+  content: "";
+}
+
+.before-after-handle-hint {
+  animation: compare-handle-nudge 1.65s ease-in-out infinite;
+}
+
+.whatsapp-soft-pulse::after {
+  animation: whatsapp-pulse 2.8s ease-out infinite;
+  border: 1px solid rgba(31, 143, 86, 0.42);
+  border-radius: 9999px;
+  content: "";
+  inset: -7px;
+  position: absolute;
+  z-index: -1;
+}
+
+.field-error {
+  animation: field-error-reveal 0.22s ease-out both;
+}
+
+@media (max-width: 1023px) {
+  .mobile-story-timeline {
+    position: relative;
+  }
+
+  .mobile-story-timeline::before {
+    background: rgba(111, 74, 47, 0.16);
+    content: "";
+    inset: 0 auto 0 1rem;
+    position: absolute;
+    width: 1px;
+  }
+
+  .bg-charcoal .mobile-story-timeline::before {
+    background: rgba(255, 250, 243, 0.14);
+  }
+
+  .mobile-story-stage {
+    border-top: 0;
+    padding-left: 2.75rem;
+    position: relative;
+  }
+
+  .mobile-story-stage::before {
+    animation: mobile-stage-dot 1.8s ease-in-out infinite;
+    background: #b99063;
+    border: 4px solid #f7f1e8;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 5px rgba(185, 144, 99, 0.16);
+    content: "";
+    height: 1rem;
+    left: 0.52rem;
+    position: absolute;
+    top: 2.2rem;
+    width: 1rem;
+  }
+
+  .bg-charcoal .mobile-story-stage::before {
+    border-color: #171514;
+  }
+
+  .mobile-story-number {
+    position: sticky;
+    top: 5.75rem;
+  }
+}
+
+@keyframes furniture-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes furniture-chair-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+}
+
+@keyframes loading-dots {
+  0% {
+    content: "";
+  }
+
+  25% {
+    content: ".";
+  }
+
+  50% {
+    content: "..";
+  }
+
+  75%,
+  100% {
+    content: "...";
+  }
+}
+
+@keyframes compare-handle-nudge {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateX(0);
+  }
+
+  35% {
+    transform: translate(-50%, -50%) translateX(-8px);
+  }
+
+  70% {
+    transform: translate(-50%, -50%) translateX(8px);
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.28);
+  }
+}
+
+@keyframes field-error-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobile-stage-dot {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
